@@ -1,0 +1,39 @@
+/*DISCLAIMER: ALL JOKES ARE FROM WOWDADJOKES ON REDDIT I OWN NONE OF THESE! also the dialog is a modified version of learningwithpy */
+#include <iostream>
+using namespace std;
+
+
+int main() {
+	int cave = 0;
+	bool yes = false;
+  //TODO : add play again
+
+		cout << "You are in a land of Zandanari. In front of you," << endl;
+		cout << "you see two caves. In one cave, the Troll is friendly" << endl;
+		cout << "and will share his treasure with you. The other Troll" << endl;
+		cout << "is the new BFA xpac badass troll whos hungry, and will eat you on sight." << endl;
+		cout << "Which cave will you go into ? (1 or 2)" << endl;
+		cin >> cave;
+
+		if (cave == 1) {
+			cout << "You enter the cave 1 and there is a very tall troll standing there... he opens his mouth and speaks" << endl;
+			cin.ignore();
+			cout << "Press enter to continue..." << endl;
+			cin.ignore();
+			cout << "A troll had a problem with his vehicle and found it was it’s" << endl;
+			cin.ignore();
+			cout << "Sen'jin" << endl;
+			cin.ignore();
+			cout << "You can't believe that it was a joke and faint! " << endl;
+			cin.ignore();
+
+		}
+		if (cave == 2) {
+			cout << "Ahh, you must be the promised patrol. I actually have somethin' really important dat I want to give you. " << endl;
+			cin.ignore();
+			cout << "The troll hands you a chest with gold inside you earned 100 gold! " << endl;
+			cin.ignore();
+		}
+	}
+
+
