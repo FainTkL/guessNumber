@@ -1,0 +1,154 @@
+//Hangman
+#include <iostream>
+#include <string>         
+using namespace std;
+
+const int max_guesses = 7;
+
+class hangMan {
+public:
+
+	//assortment of words
+	string wordGenerator() {
+		string words[10] = { "dog", "horse", "salmon", "duck", "python", "frog", "mouse", "moose", "cougar", "hawk" };
+		int secretWord = rand() % 10 + 1;
+		return words[secretWord];
+	}
+
+	//print HANGMAN on the board
+	void printHangman(int chanceLeft) {
+		if (chanceLeft == 7) {
+			cout << "    +---+" << endl;
+			cout << "        |" << endl;
+			cout << "        |" << endl;
+			cout << "        |" << endl;
+			cout << "       === ''']" << endl;
+		};
+		if (chanceLeft == 6) {
+
+			cout << "    +---+" << endl;
+			cout << "     O  |" << endl;
+			cout << "        |" << endl;
+			cout << "        |" << endl;
+			cout << "       === ''']" << endl;
+		}
+		if (chanceLeft == 5) {
+			cout << "    +---+" << endl;
+			cout << "     O  |" << endl;
+			cout << "     |  |" << endl;
+			cout << "        |" << endl;
+			cout << "       === ''']" << endl;
+
+		}
+		if (chanceLeft == 4) {
+
+			cout << "    +---+" << endl;
+			cout << "     O  |" << endl;
+			cout << "    /|  |" << endl;
+			cout << "        |" << endl;
+			cout << "       === ''']" << endl;
+
+		}
+		if (chanceLeft == 3) {
+
+			cout << "    +---+" << endl;
+			cout << "     O  |" << endl;
+			cout << "    /|\\|" << endl;
+			cout << "        |" << endl;
+			cout << "       === ''']" << endl;
+
+		}
+		if (chanceLeft == 2) {
+
+			cout << "    +---+" << endl;
+			cout << "     O  |" << endl;
+			cout << "    /|\\|" << endl;
+			cout << "    /   |" << endl;
+			cout << "       === ''']" << endl;
+
+		}
+		if (chanceLeft == 1) {
+
+			cout << "    +---+" << endl;
+			cout << "     O  |" << endl;
+			cout << "    /|\\|" << endl;
+			cout << "    / \ |" << endl;
+			cout << "       === ''']" << endl;
+
+		}
+		if (chanceLeft == 0) {
+			cout << "No more chances!" << endl;
+		}
+	};
+
+	//print number of bars according to the word
+	//void printBars(string word) {
+	//	for (int i = 0; i < word.length; i++) {
+	//		cout << "_";
+	//	}
+	//};
+
+	//index the word and then see if it matches
+	int match(string match, string secretWord) {
+		bool found = false;
+		for (int i = 0; i <= 10; i++) {
+			if (match == secretWord) {
+				found = true;
+			}
+			else {
+				found = false;
+			}
+		}
+		return found;
+	};
+
+	//check if the game finished
+	bool endCheck(string letter, string secretWord) {
+		bool noWin = true;
+
+		//if guessed word == guessed word
+		// then user wins
+		return noWin;
+	};
+	bool chanceCheck(int chance) {
+		return (chance == 0) ? false : true;
+	}
+
+};
+
+int main() {
+
+	hangMan hang;
+	string letter;
+	int over = 0, chances = 7;
+
+	//grab the word
+	string secretWord = hang.wordGenerator();
+
+
+	cout << "H A N G  M A N" << endl;
+	cin.ignore();
+	cout << "Press enter to play!" << endl;
+
+	while (chances != 0) {
+		hang.printHangman(chances);
+		chances--;
+		//hang.printBars(secretWord);
+		cout << "Enter a word" << endl;
+		cin >> letter;
+		hang.match(letter, secretWord);
+
+		if (!hang.endCheck(letter, secretWord)) {
+			cout << "You win!" << endl;
+			over = true;
+		}
+		else if (!hang.chanceCheck(chances)) {
+			cout << "You lose" << endl;
+			over = true;
+		}
+
+	}
+
+};
+
+
